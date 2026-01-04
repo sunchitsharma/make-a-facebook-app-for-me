@@ -3,54 +3,172 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facebook App</title>
+  <title>Shivani's Home</title>
   <style>
+    :root {
+      --primary: #6a5acd;
+      --bg: #f7f8fc;
+      --text: #1f1f2e;
+      --muted: #6c6c7a;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: #f0f2f5;
     }
-    .container {
-      text-align: center;
-      padding: 20px;
-      border: 1px solid #ddd;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    .page {
+      width: 100%;
+      max-width: 900px;
+      padding: 24px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid #eceff5;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a68cf1, #6a5acd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 1px;
     }
     .title {
-      font-size: 24px;
-      margin-bottom: 10px;
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0;
     }
     .subtitle {
-      color: #666;
-      margin-bottom: 20px;
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 15px;
     }
-    .button {
-      background: #1877f2;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef0ff;
+      color: #4c45d6;
+      font-weight: 600;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-top: 24px;
+    }
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .section p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .pill {
+      background: #f2f3f8;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #e6e8f0;
+      font-weight: 600;
+      color: #2d2d40;
+    }
+    .pill small {
+      display: block;
+      font-weight: 500;
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 13px;
+    }
+    .cta {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6a5acd, #7d6df8);
       color: #fff;
       border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
       cursor: pointer;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
     }
-    .button:disabled {
-      background: #a7c5f7;
-      cursor: not-allowed;
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(106, 90, 205, 0.3);
+    }
+    .cta:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title">Facebook App</div>
-    <div class="subtitle">A placeholder for your Facebook app integration.</div>
-    <button class="button" disabled>Login with Facebook (Coming Soon)</button>
+  <div class="page">
+    <div class="card">
+      <div class="header">
+        <div class="avatar">SH</div>
+        <div>
+          <h1 class="title">Welcome, Shivani</h1>
+          <p class="subtitle">Test user profile · Home dashboard</p>
+          <div class="badge">🔒 Test Access</div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Quick Summary</h3>
+        <p>You're signed in as a test user. Review your profile, confirm access, and explore features safely without impacting live data.</p>
+      </div>
+      <div class="section">
+        <h3>Profile Highlights</h3>
+        <div class="grid">
+          <div class="pill">Status: Active<small>All systems go</small></div>
+          <div class="pill">Role: Tester<small>Feature validation</small></div>
+          <div class="pill">Env: Sandbox<small>Safe experimentation</small></div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Next Steps</h3>
+        <p>Use the sandbox to validate flows, capture feedback, and ensure everything works as expected before going live.</p>
+        <button class="cta">View Test Features</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
