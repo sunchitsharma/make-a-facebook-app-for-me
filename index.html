@@ -3,129 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivani's Home</title>
+  <title>Shivani | Facebook</title>
   <style>
-    :root {
-      --primary: #6a5acd;
-      --bg: #f7f8fc;
-      --text: #1f1f2e;
-      --muted: #6c6c7a;
-      --card: #ffffff;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f2f5;
+      color: #1c1e21;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
-    .page { width: 100%; max-width: 900px; padding: 24px; }
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      border: 1px solid #eceff5;
-    }
-    .header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-    .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #a68cf1, #6a5acd);
+    a { color: inherit; text-decoration: none; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 24px;
-      letter-spacing: 1px;
+      justify-content: space-between;
+      padding: 8px 16px;
+      background: #fff;
+      border-bottom: 1px solid #dddfe2;
     }
-    .title { font-size: 26px; font-weight: 700; margin: 0; }
-    .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1877f2;
+    }
+    .search-box {
+      flex: 1;
+      margin: 0 12px;
+      position: relative;
+      max-width: 360px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px 12px 10px 38px;
+      border: none;
       border-radius: 999px;
-      background: #eef0ff;
-      color: #4c45d6;
-      font-weight: 600;
-      font-size: 13px;
-      margin-top: 10px;
+      background: #f0f2f5;
+      font-size: 15px;
+      outline: none;
     }
-    .section { margin-top: 24px; }
-    .section h3 { margin: 0 0 8px; font-size: 18px; }
-    .section p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 15px; }
-    .grid {
+    .search-box:before {
+      content: '\1F50D';
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      font-size: 16px;
+      color: #606770;
+    }
+    .top-actions { display: flex; align-items: center; gap: 12px; }
+    .round-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e4e6eb;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      place-items: center;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 12px 48px;
+    }
+    .cover {
+      background: linear-gradient(135deg, #1877f2, #42a1ff);
+      border-radius: 0 0 12px 12px;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.2));
+    }
+    .profile-header {
+      background: #fff;
+      border: 1px solid #dddfe2;
+      border-radius: 12px;
+      margin-top: -70px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: auto 1fr;
       gap: 16px;
-      margin-top: 14px;
+      align-items: end;
     }
-    .pill {
-      background: #f2f3f8;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #e6e8f0;
-      font-weight: 600;
-      color: #2d2d40;
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      background: linear-gradient(135deg, #1877f2, #6bb3ff);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 36px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .pill small { display: block; font-weight: 500; color: var(--muted); margin-top: 4px; font-size: 13px; }
-    .cta {
-      margin-top: 24px;
+    .profile-info { display: flex; flex-direction: column; gap: 8px; }
+    .profile-info h1 { font-size: 28px; margin: 0; }
+    .profile-meta { color: #606770; font-size: 15px; }
+    .profile-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #6a5acd, #7d6df8);
-      color: #fff;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 6px;
       border: none;
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 15px;
-      box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25);
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
     }
-    .cta:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(106, 90, 205, 0.3); }
-    .cta:active { transform: translateY(0); box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25); }
+    .btn-primary { background: #1877f2; color: #fff; }
+    .btn-secondary { background: #e4e6eb; color: #050505; }
+    .tabs {
+      display: flex;
+      gap: 16px;
+      border-top: 1px solid #dddfe2;
+      padding-top: 12px;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .tab { padding: 10px 4px; color: #606770; }
+    .tab.active { color: #1877f2; border-bottom: 3px solid #1877f2; padding-bottom: 7px; }
+    .content {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #dddfe2;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .card h3 { margin: 0 0 10px; font-size: 18px; }
+    .intro-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .intro-list li { color: #050505; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+    .muted { color: #606770; }
+    .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .photo { background: #e4e6eb; padding-top: 100%; border-radius: 8px; position: relative; overflow: hidden; }
+    .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .composer {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #dddfe2;
+      padding-bottom: 12px;
+      margin-bottom: 8px;
+    }
+    .composer input {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 20px;
+      border: 1px solid #dddfe2;
+      background: #f0f2f5;
+      outline: none;
+      font-size: 15px;
+    }
+    .post-card { margin-top: 12px; }
+    .post-header { display: flex; align-items: center; gap: 10px; }
+    .small-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e4e6eb;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #1877f2;
+    }
+    .post-meta { display: flex; flex-direction: column; }
+    .post-meta .name { font-weight: 700; }
+    .post-meta .time { color: #606770; font-size: 13px; }
+    .post-body { margin: 10px 0; font-size: 15px; line-height: 1.4; }
+    .post-actions { display: flex; justify-content: space-around; padding-top: 8px; border-top: 1px solid #dddfe2; color: #606770; font-weight: 600; font-size: 14px; }
+    .post-actions div { padding: 8px 0; cursor: pointer; }
+    .cta-test { margin-top: 8px; }
+    @media (max-width: 960px) {
+      .content { grid-template-columns: 1fr; }
+      .profile-header { grid-template-columns: 1fr; align-items: center; text-align: center; }
+      .profile-actions { justify-content: center; }
+      .avatar { margin: 0 auto; }
+    }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="card">
-      <div class="header">
-        <div class="avatar">SH</div>
-        <div>
-          <h1 class="title">Welcome, Shivani</h1>
-          <p class="subtitle">Test user profile · Home dashboard</p>
-          <div class="badge">🔒 Test Access</div>
+  <div class="topbar">
+    <div class="logo">f</div>
+    <div class="search-box">
+      <input type="text" placeholder="Search Facebook" />
+    </div>
+    <div class="top-actions">
+      <div class="round-btn">&#x1F514;</div>
+      <div class="round-btn">&#x1F4E7;</div>
+      <div class="round-btn">&#x1F464;</div>
+    </div>
+  </div>
+  <div class="cover"></div>
+  <div class="layout">
+    <div class="profile-header">
+      <div class="avatar">SH</div>
+      <div class="profile-info">
+        <h1>Shivani</h1>
+        <div class="profile-meta">Test user profile · Home dashboard</div>
+        <div class="profile-actions">
+          <button class="btn btn-primary">&#x1F4F8; Add to story</button>
+          <button class="btn btn-secondary">&#x270E; Edit profile</button>
+          <button id="test-feature-btn" class="btn btn-secondary cta-test">View Test Features</button>
+        </div>
+        <div class="tabs">
+          <div class="tab active">Timeline</div>
+          <div class="tab">About</div>
+          <div class="tab">Friends</div>
+          <div class="tab">Photos</div>
+          <div class="tab">More</div>
         </div>
       </div>
-      <div class="section">
-        <h3>Quick Summary</h3>
-        <p>You're signed in as a test user. Review your profile, confirm access, and explore features safely without impacting live data.</p>
-      </div>
-      <div class="section">
-        <h3>Profile Highlights</h3>
-        <div class="grid">
-          <div class="pill">Status: Active<small>All systems go</small></div>
-          <div class="pill">Role: Tester<small>Feature validation</small></div>
-          <div class="pill">Env: Sandbox<small>Safe experimentation</small></div>
+    </div>
+
+    <div class="content">
+      <div class="left-column">
+        <div class="card">
+          <h3>Intro</h3>
+          <ul class="intro-list">
+            <li>&#x1F4CD; Lives in Sandbox</li>
+            <li>&#x1F4BB; Tester · Feature validation</li>
+            <li>&#x1F512; Test access enabled</li>
+            <li>&#x1F9EA; Exploring safely without impacting live data</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h3>Photos</h3>
+            <span class="muted" style="font-size:14px;">See all</span>
+          </div>
+          <div class="photos-grid">
+            <div class="photo"></div>
+            <div class="photo"></div>
+            <div class="photo"></div>
+            <div class="photo"></div>
+            <div class="photo"></div>
+            <div class="photo"></div>
+          </div>
         </div>
       </div>
-      <div class="section">
-        <h3>Next Steps</h3>
-        <p>Use the sandbox to validate flows, capture feedback, and ensure everything works as expected before going live.</p>
-        <button id="test-feature-btn" class="cta">View Test Features</button>
+      <div class="right-column">
+        <div class="card">
+          <div class="composer">
+            <div class="small-avatar">SH</div>
+            <input type="text" placeholder="What's on your mind, Shivani?" />
+          </div>
+          <div style="display:flex; justify-content:space-around; color:#606770; font-weight:600; font-size:14px;">
+            <div>&#x1F3AC; Live video</div>
+            <div>&#x1F4F7; Photo/video</div>
+            <div>&#x1F5FA; Life event</div>
+          </div>
+        </div>
+
+        <div class="card post-card">
+          <div class="post-header">
+            <div class="small-avatar">SH</div>
+            <div class="post-meta">
+              <span class="name">Shivani</span>
+              <span class="time">Just now · Sandbox</span>
+            </div>
+          </div>
+          <div class="post-body">
+            Welcome to your test profile. Use this space to validate flows, capture feedback, and ensure everything works as expected before going live.
+          </div>
+          <div class="post-actions">
+            <div>&#x1F44D; Like</div>
+            <div>&#x1F4AC; Comment</div>
+            <div>&#x1F4E4; Share</div>
+          </div>
+        </div>
+
+        <div class="card post-card">
+          <div class="post-header">
+            <div class="small-avatar">FB</div>
+            <div class="post-meta">
+              <span class="name">Facebook Sandbox</span>
+              <span class="time">1d · Test Update</span>
+            </div>
+          </div>
+          <div class="post-body">
+            Status: Active · Role: Tester · Env: Sandbox. You're all set to explore features safely without impacting live data.
+          </div>
+          <div class="post-actions">
+            <div>&#x1F44D; Like</div>
+            <div>&#x1F4AC; Comment</div>
+            <div>&#x1F4E4; Share</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
