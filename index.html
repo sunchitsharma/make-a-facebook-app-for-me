@@ -13,9 +13,7 @@
       --card: #ffffff;
       --shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Inter', Arial, sans-serif;
       margin: 0;
@@ -27,11 +25,7 @@
       justify-content: center;
       align-items: center;
     }
-    .page {
-      width: 100%;
-      max-width: 900px;
-      padding: 24px;
-    }
+    .page { width: 100%; max-width: 900px; padding: 24px; }
     .card {
       background: var(--card);
       border-radius: 14px;
@@ -39,12 +33,7 @@
       box-shadow: var(--shadow);
       border: 1px solid #eceff5;
     }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
+    .header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
     .avatar {
       width: 72px;
       height: 72px;
@@ -58,16 +47,8 @@
       font-size: 24px;
       letter-spacing: 1px;
     }
-    .title {
-      font-size: 26px;
-      font-weight: 700;
-      margin: 0;
-    }
-    .subtitle {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
+    .title { font-size: 26px; font-weight: 700; margin: 0; }
+    .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
     .badge {
       display: inline-flex;
       align-items: center;
@@ -80,19 +61,9 @@
       font-size: 13px;
       margin-top: 10px;
     }
-    .section {
-      margin-top: 24px;
-    }
-    .section h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-    .section p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 15px;
-    }
+    .section { margin-top: 24px; }
+    .section h3 { margin: 0 0 8px; font-size: 18px; }
+    .section p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 15px; }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -107,13 +78,7 @@
       font-weight: 600;
       color: #2d2d40;
     }
-    .pill small {
-      display: block;
-      font-weight: 500;
-      color: var(--muted);
-      margin-top: 4px;
-      font-size: 13px;
-    }
+    .pill small { display: block; font-weight: 500; color: var(--muted); margin-top: 4px; font-size: 13px; }
     .cta {
       margin-top: 24px;
       display: inline-flex;
@@ -130,14 +95,8 @@
       box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25);
       transition: transform 0.08s ease, box-shadow 0.08s ease;
     }
-    .cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(106, 90, 205, 0.3);
-    }
-    .cta:active {
-      transform: translateY(0);
-      box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25);
-    }
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(106, 90, 205, 0.3); }
+    .cta:active { transform: translateY(0); box-shadow: 0 10px 25px rgba(106, 90, 205, 0.25); }
   </style>
 </head>
 <body>
@@ -166,9 +125,14 @@
       <div class="section">
         <h3>Next Steps</h3>
         <p>Use the sandbox to validate flows, capture feedback, and ensure everything works as expected before going live.</p>
-        <button class="cta">View Test Features</button>
+        <button id="test-feature-btn" class="cta">View Test Features</button>
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById('test-feature-btn').addEventListener('click', () => {
+      window.location.href = 'https://www.facebook.com/';
+    });
+  </script>
 </body>
 </html>
